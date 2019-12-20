@@ -55,7 +55,66 @@
     transition: all .4s;
     
     &:hover {
-        bacgkround-color: $color-primary;
+        background-color: $color-primary;
         color: $color-dark;
+    }
+}
+
+.card {
+    width: 33.3333%;
+    height: 30vw;
+    position: relative;
+    overflow: hidden;
+
+    &:hover .card-overlay {
+        left: 0;
+    }
+
+    &-overlay {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      transition: left .7s;
+      background-color: rgba($color-primary, 0.6);
+      color: $color-light;
+      z-index: 10;
+      @include flexLayout;
+      flex-direction: column;
+      @extend %fullspace;
+
+      &-heading {
+          font-family: $font-nunito;
+          font-size: 50px;
+          @include textStyles(capitalize);
+      }
+
+      &-paragraph {
+        font-family: $font-josefineSans;
+        font-size: 30px;
+        margin-bottom: 30px;
+        @include textStyles(capitalize);
+      }
+
+      &-btn {
+        width: 150px;
+        height: 40px;
+        color: $color-primary;
+        background-color: $color-light;
+        font-family: $font-josefineSans;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 1px solid $color-primary;
+        border-radius: 30px;
+        outline: none;
+        cursor: pointer;
+        }
+    }
+
+    &-img{
+        @extend %fullspace;
+        object-fit: cover;
+        opacity: .5;
     }
 }
